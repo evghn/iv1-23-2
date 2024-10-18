@@ -11,7 +11,18 @@
 
 // $cat = new Pet(color: 'black', nickname:'Murzik',age:2, sex:'male');
 
-
+$bear = new Animal([
+    'color' => 'black',   
+    'age' => 2,
+    'sex' => 'male',
+    'likeFoods' => [
+        'milk',
+        'meat',
+        'fish',
+        'berries',
+    ]
+]);
+var_dump($bear); 
 
 
 $cat = new Pet([

@@ -8,6 +8,17 @@ class Animal
     public bool $isHungry = true;
     public array $likeFoods = [];
 
+    public function __construct(array $data)
+    {
+        if ($data) {
+            foreach ($data as $attr => $val) {
+                if (isset($this->$attr)) {
+                    $this->$attr = $val;
+                }
+            }
+        }
+    }
+
 
     public function toEat(string|array $foods): bool
     {
@@ -55,5 +66,19 @@ class Animal
             }
         }
         return "info:<br>" . $result;
+    }
+
+
+    public function run(): string
+    {
+        $result = $this->compare($this->isHungry, "Никуда не бежит :(", "побежал!");
+        $this->isHungry = true;
+
+        return $result;
+    }
+
+    public function getStatusHungry(): string
+    {
+        return $this->compare($this->isHungry, 'is hungry', "no hungry!");
     }
 }
