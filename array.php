@@ -1,9 +1,11 @@
+<pre>
 <?php
 
 // Array
 
 // $mas = array();
 $mas = [1, 2, 3, 4];
+
 $mas[] = 5;
 
 $mas[3] = 5;
@@ -90,3 +92,6 @@ foreach ($petya as $key => $data) {
         echo "}<br>";
     }
 }
+
+
+$mas = [2, 3, 5, 2, 7, 40, 3];

@@ -1,0 +1,4 @@
+a:4:{s:4:"name";s:5:"vasya";s:5:"login";s:11:"vasya_login";s:8:"password";s:14:"vasya_password";s:3:"age";i:18;}
+a:4:{s:4:"name";s:5:"petya";s:5:"login";s:11:"petya_login";s:8:"password";s:14:"petya_password";s:3:"age";i:18;}
+a:4:{s:4:"name";s:5:"kolya";s:5:"login";s:11:"kolya_login";s:8:"password";s:14:"kolya_password";s:3:"age";i:18;}
+a:4:{s:4:"name";s:4:"vova";s:5:"login";s:10:"vova_login";s:8:"password";s:13:"vova_password";s:3:"age";i:18;}
