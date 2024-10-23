@@ -39,6 +39,7 @@ $cat = new Pet([
     ]
 ]);
 
+echo $cat->getCount();
 
 echo $cat->say('мяу-мяу');
 echo $cat->run();
@@ -82,3 +83,27 @@ echo $cat->getStatusHungry();
 
 echo $cat->run();
 echo $dog->run();
+
+
+
+
+echo $dog->getCount();
+echo $bear->getCount();
+
+$turtle = new Pet([
+    'color' => 'white',
+    'nickname' => 'Turtilla',
+    'age' => 3,
+    'sex' => 'male',
+    'likeFoods' => [
+        'meat',
+        'fish', 
+    
+    ]
+]);
+
+echo $turtle->getCount();
+
+var_dump(Animal::IS_OWNER);
+var_dump($bear::IS_OWNER);
+var_dump(Pet::IS_OWNER);

@@ -2,21 +2,22 @@
 
 class Animal
 {
+
+    public const IS_OWNER = false;
+
     public string $color = '';
     public int $age = 0;
     public string $sex = '';
     public bool $isHungry = true;
     public array $likeFoods = [];
+    public static int $count = 0;
 
-    public function __construct(array $data)
+    public function __construct(array $data, bool $child = false)
     {
-        if ($data) {
-            foreach ($data as $attr => $val) {
-                if (isset($this->$attr)) {
-                    $this->$attr = $val;
-                }
-            }
-        }
+        Helper::construct($data, $this);
+        if (! $child) {
+            self::$count++;
+        }        
     }
 
 
@@ -34,44 +35,19 @@ class Animal
 
         return $this->isHungry;
     }
-
-    public function helperString(string $str, bool $firstSpace = true): string
-    {
-        return ($firstSpace ? " " : "") . "$str<br>";
-    }
-
-    public function compare(mixed $val, string $text1, string $text2): string
-    {
-        return $this->helperString($val ? $text1 : $text2);
-    }
-
-
+   
     
 
     public function getInfo()
-    {
-        $result = "";
-        foreach (get_object_vars($this) as $attr => $val) {
-            if (!is_array($val)) {
-                $result .= $this->helperString("$attr => $val", false);
-            } else {
-                $result .= $this->helperString("$attr: <br>" .
-                    implode("<br>",
-                        array_map(fn($val) => " -> $val",
-                            array_values($val)
-                        )
-                    ), 
-                    false
-                );
-            }
-        }
-        return "info:<br>" . $result;
+    {        
+        return Helper::helperString("info:", false)
+            . Helper::getInfo($this);
     }
 
 
     public function run(): string
     {
-        $result = $this->compare($this->isHungry, "Никуда не бежит :(", "побежал!");
+        $result = Helper::compare($this->isHungry, "Никуда не бежит :(", "побежал!");
         $this->isHungry = true;
 
         return $result;
@@ -79,6 +55,11 @@ class Animal
 
     public function getStatusHungry(): string
     {
-        return $this->compare($this->isHungry, 'is hungry', "no hungry!");
+        return Helper::compare($this->isHungry, 'is hungry', "no hungry!");
+    }
+
+    public function getCount()
+    {
+        return Helper::helperString(self::$count);
     }
 }
